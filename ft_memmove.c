@@ -10,27 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <stddef.h>
 
-void	des_b_src(char *d, char *s, size_t n)
+void	des_b_src(char *d, const char *s, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		d[i] = s[i];
 		i++;
 	}
 }
 
-void	src_b_des(char *d, char *s, size_t n)
+void	src_b_des(char *d, const char *s, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = n;
-	while(i > 0)
+	while (i > 0)
 	{
 		d[i - 1] = s[i - 1];
 		i--;
@@ -40,15 +39,20 @@ void	src_b_des(char *d, char *s, size_t n)
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*d;
-	char	*s;
+	const char	*s;
 	size_t	i;
 
+	if (!dest && !src)
+		return (NULL);
+	if (d == s || n == 0)
+		return (dest);
 	d = (char *)dest;
-	s = (char *)src;
-	if((d == s) || (n == 0))
-		return dest;
-	if(d < s)
+	s = (const char *)src;
+	if ((d == s) || (n == 0))
+		return (dest);
+	if (d < s)
 		des_b_src(d, s, n);
 	else
 		src_b_des(d, s, n);
+	return (dest);
 }

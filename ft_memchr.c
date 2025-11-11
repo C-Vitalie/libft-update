@@ -12,18 +12,18 @@
 
 #include <stddef.h>
 
-void    *ft_memchr(const void *mem, int chr, size_t size)
+void	*ft_memchr(const void *mem, int chr, size_t size)
 {
-    size_t  i;
-    char    *ptr;
+	size_t	i;
+	char	*ptr;
 
-    ptr = (char *)mem;
-    i = 0;
-    while(i < size)
-    {
-        if(ptr[i] == chr)
-            return(ptr + i);
-        i++;
-    }
-    return(NULL);
+	ptr = (char *)mem;
+	i = 0;
+	while (i < size)
+	{
+		if (ptr[i] == chr)
+			return (ptr + i);
+		i++;
+	}
+	return (NULL);
 }

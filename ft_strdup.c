@@ -12,35 +12,23 @@
 
 #include <stdlib.h>
 
-char    *ft_strdup(const char *src)
+char	*ft_strdup(const char *src)
 {
-    int i;
-    char    *tab;
+	int		i;
+	char	*tab;
 
-    i = 0;
-    while(src[i])
-        i++;
-    tab = malloc(sizeof(char) * (i + 1));
-    if(tab == NULL)
-        return(NULL);
-    i = 0;
-    while(src[i])
-    {
-        tab[i] = src[i];
-        i++;
-    }
-    tab[i] = '\0';
-    return(tab);
-}
-#include <stdio.h>
-
-int main(void)
-{
-    char    tab[] = "Salut 42";
-    char    *res;
-
-    res = ft_strdup(tab);
-    printf("%s", res);
-    free(res);
-    return(0);
+	i = 0;
+	while (src[i])
+		i++;
+	tab = malloc(sizeof(char) * (i + 1));
+	if (tab == NULL)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		tab[i] = src[i];
+		i++;
+	}
+	tab[i] = '\0';
+	return (tab);
 }

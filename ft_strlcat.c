@@ -12,25 +12,26 @@
 
 #include <stddef.h>
 
-size_t  ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-    size_t  i;
-    size_t  y;
+	size_t	i;
+	size_t	y;
+	size_t	j;
 
-    i = 0;
-    while(dest[i])
-        i++;
-    y = 0;
-    while(src[y])
-        y++;
-    if(i + y >= size)
-        return(i + y);
-    y = 0;
-    while((i + y < size) && (src[y]))
-    {
-        dest[i + y] = src[y];
-        y++;
-    }
-    dest[i + y] = '\0';
-    return(i + y);
+	i = 0;
+	while (dest[i])
+		i++;
+	y = 0;
+	while (src[y])
+		y++;
+	if (i + y >= size)
+		return (i + y);
+	j = 0;
+	while ((i + j < size) && (src[j]))
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (i + j);
 }

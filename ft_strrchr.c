@@ -12,20 +12,20 @@
 
 #include <string.h>
 
-char    *ft_strrchr(const char *string, int c)
+char	*ft_strrchr(const char *string, int c)
 {
-    char    *res;
-    int i;
+	char	*res;
+	int		i;
 
-    res = NULL;
-    i = 0;
-    while(string[i])
-    {
-        if(string[i] == c)
-        {
-            res = (char *)string + i;
-        }
-        i++;
-    }
-    return(res);
+	res = NULL;
+	i = 0;
+	while (string[i])
+	{
+		if (string[i] == c)
+			res = (char *)string + i;
+		i++;
+	}
+	if (c == '\0')
+		res = (char *)string + i;
+	return (res);
 }

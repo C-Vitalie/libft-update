@@ -12,21 +12,23 @@
 
 #include <string.h>
 
-char    *ft_strchr(const char *string, int c)
+char	*ft_strchr(const char *string, int c)
 {
-    char    *res;
-    int i;
+	char	*res;
+	int		i;
 
-    res = NULL;
-    i = 0;
-    while(string[i])
-    {
-        if(string[i] == c)
-        {
-            res = (char *)string + i; 
-            return(res);
-        }
-        i++;
-    }
-    return(res);
+	res = NULL;
+	i = 0;
+	while (string[i])
+	{
+		if (string[i] == c)
+		{
+			res = (char *)string + i;
+			return (res);
+		}
+		i++;
+	}
+	if (c == '\0')
+		res = (char *)string + i;
+	return (res);
 }

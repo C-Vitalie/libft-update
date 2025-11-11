@@ -13,23 +13,23 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-void    *ft_calloc(size_t e_cnt, size_t e_size)
+void	*ft_calloc(size_t e_cnt, size_t e_size)
 {
-    void    *ptr;
-    size_t  total;
-    size_t  i;
+	void	*ptr;
+	size_t	total;
+	size_t	i;
 
-    total = e_cnt * e_size;
-    if((e_cnt > 0) && (total / e_cnt != e_size))
-        return(NULL);
-    ptr = malloc(total);
-    if (ptr == NULL)
-        return(NULL);
-    i = 0;
-    while(i < total)
-    {
-        ((char *)ptr)[i] = 0;
-        i++;
-    }
-    return(ptr);
+	total = e_cnt * e_size;
+	if ((e_cnt > 0) && (total / e_cnt != e_size))
+		return (NULL);
+	ptr = malloc(total);
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < total)
+	{
+		((char *)ptr)[i] = 0;
+		i++;
+	}
+	return (ptr);
 }

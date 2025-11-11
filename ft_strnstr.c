@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stddef.h>
 
-char    *ft_strnstr(const char *tab, const char *chr, size_t n)
+char	*ft_strnstr(const char *tab, const char *chr, size_t n)
 {
-    size_t  i;
-    size_t  y;
-    char    *p1;
-    char    *p2;
+	size_t	i;
+	size_t	y;
+	char	*p1;
+	char	*p2;
 
-    p1 = (char *)tab;
-    p2 = (char *)chr;
-    if(!chr)
-        return(p1);
-    i = 0;
-    while(i < n)
-    {
-        y = 0;
-        while((p1[i + y] == p2[y]) && (i + y < n))
-            y++;
-        if(p2[y] == '\0')
-            return(p1 + i);
-        i++;
-    }
-    return(NULL);
+	p1 = (char *)tab;
+	p2 = (char *)chr;
+	if (!chr)
+		return ((char *)tab);
+	i = 0;
+	while (i < n)
+	{
+		y = 0;
+		while ((p1[i + y] == p2[y]) && (i + y < n))
+			y++;
+		if (p2[y] == '\0')
+			return (p1 + i);
+		i++;
+	}
+	return (NULL);
 }

@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *tab)
+#include "libft.h"
+
+size_t	ft_strlen(char *tab)
 {
 	int	i;
 
 	i = 0;
-	while(tab[i])
+	while (tab[i])
 		i++;
-	return(i);
+	return (i);
 }
