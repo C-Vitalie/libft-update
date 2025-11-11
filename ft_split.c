@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:11:13 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/11 13:16:26 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/11 18:08:23 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ char	**ft_split(char const *s, char c)
 				return (ft_free_all(tab, j - 1), NULL);
 		}
 	}
-	return (tab[j] = NULL,tab);
+	return (tab[j] = NULL, tab);
 }

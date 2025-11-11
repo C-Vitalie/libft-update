@@ -39,15 +39,12 @@ void	src_b_des(char *d, const char *s, size_t n)
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*d;
-	const char	*s;
-	size_t	i;
+	char	*s;
 
 	if (!dest && !src)
 		return (NULL);
-	if (d == s || n == 0)
-		return (dest);
 	d = (char *)dest;
-	s = (const char *)src;
+	s = (char *)src;
 	if ((d == s) || (n == 0))
 		return (dest);
 	if (d < s)
