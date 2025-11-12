@@ -27,7 +27,7 @@ char	*ft_strnstr(const char *tab, const char *chr, size_t n)
 	while (i < n)
 	{
 		y = 0;
-		while ((p1[i + y] == p2[y]) && (i + y < n))
+		while ((p1[i + y] == p2[y]) && (i + y < n) && (p1[i + y]) && (p2[y]))
 			y++;
 		if (p2[y] == '\0')
 			return (p1 + i);
