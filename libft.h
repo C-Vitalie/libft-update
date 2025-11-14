@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 15:01:06 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/11 18:54:14 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/14 14:35:11 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strdup(const char *src);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-size_t	ft_strlen(char *tab);
+size_t	ft_strlen(const char *tab);
 int		ft_strncmp(const char *s1, const char *s2, size_t len);
 char	*ft_strnstr(const char *tab, const char *chr, size_t n);
 char	*ft_strrchr(const char *string, int c);

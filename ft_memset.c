@@ -12,7 +12,7 @@
 
 #include <stddef.h>
 
-void	ft_memset(void *ptr, int val, size_t cnt)
+void	*ft_memset(void *ptr, int val, size_t cnt)
 {
 	char	*d;
 	size_t	i;
@@ -24,4 +24,5 @@ void	ft_memset(void *ptr, int val, size_t cnt)
 		d[i] = val;
 		i++;
 	}
+	return (ptr);
 }

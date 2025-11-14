@@ -1,5 +1,5 @@
 CC = gcc
-CFLEAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SOURCES = ft_atoi.c\
 		ft_bzero.c\
 		ft_calloc.c\
@@ -45,7 +45,7 @@ all: $(OBJECTS)
 	$(AR) -rcs $(TARGET) $(OBJECTS)
 
 %.o: %.c
-	$(CC) $(CFLEAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) -f $(OBJECTS)
@@ -54,3 +54,9 @@ fclean: clean
 	$(RM) -f $(TARGET)
 
 re: fclean all
+
+bonus: all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES)
+	gcc -nostartfiles -shared -o libft.so $(OBJECTS)

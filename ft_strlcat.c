@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025/11/06 21:19:09 by vcucuiet          #+#    #+#             */
 /*   Updated: 2025/11/06 21:19:09 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
@@ -14,24 +17,22 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	y;
-	size_t	j;
+	size_t destlen;
+	size_t srclen;
+	size_t j;
 
-	i = ft_strlen(dest);
-	y = ft_strlen((char *)src);
+	srclen = ft_strlen(src);
+	if (!size)
+		return (srclen);
+	destlen = ft_strlen(dest);
 	j = 0;
-	//if (i + y >= size)
-	//	return (i + y);
-	while ((i + j < size) && (src[j]))
+	while ((destlen + j < size - 1) && (src[j]))
 	{
-		dest[i + j] = src[j];
-		if (i + y >= size)
-			break ;
+		dest[destlen + j] = src[j];
 		j++;
 	}
-	dest[i + j] = '\0';
-	if (i + y >= size)
-		return (i + y);
-	return (i + j);
+	dest[destlen + j] = '\0';
+	if (destlen >= size)
+		return (size + srclen);
+	return (destlen + srclen);
 }

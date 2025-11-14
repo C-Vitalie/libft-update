@@ -10,23 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	while ((i < size - 1) && (src[j] && (dest[i])))
+	if (size == 0)
+		return(ft_strlen(src));
+	while ((i < size - 1) && src[i])
 	{
-		dest[i] = src[j];
+		dest[i] = src[i];
 		i++;
-		j++;
 	}
 	dest[i] = '\0';
-	while (src[j])
-		j++;
-	return (j);
+	return(ft_strlen(src));
 }

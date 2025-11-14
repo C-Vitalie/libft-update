@@ -19,10 +19,10 @@ char	*ft_strnstr(const char *tab, const char *chr, size_t n)
 	char	*p1;
 	char	*p2;
 
+	if (!n)
+		return ((char *)tab);
 	p1 = (char *)tab;
 	p2 = (char *)chr;
-	if (!chr)
-		return ((char *)tab);
 	i = 0;
 	while (i < n)
 	{
