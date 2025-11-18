@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 13:13:38 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/18 14:54:33 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:14:07 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*temps;
+	t_list	*temp;
 
-	while (*lst != NULL)
+	while (temp->next != NULL)
 	{
-		temps = *lst;
-		*lst = temps->next;
+		temp = new;
+		*lst = temp;
+		new = temp->next;
 	}
-	temps->next = new; 
+	*lst = new;
 }
