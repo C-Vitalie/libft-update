@@ -6,13 +6,13 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:01:00 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/18 17:32:08 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/18 23:50:26 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 

@@ -6,13 +6,13 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:12:40 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/18 17:01:47 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/18 23:51:27 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 

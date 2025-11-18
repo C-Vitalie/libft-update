@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *string, int c)
 	chr = (char)c;
 	while (1)
 	{
-		if (*string ==  chr)
+		if (*string == chr)
 			res = (char *)string;
 		if (*string == '\0')
 			break ;

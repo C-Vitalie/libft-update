@@ -6,12 +6,11 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:20:11 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/17 23:38:50 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/18 23:50:44 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static int	ft_count_digits(long int nb, int sign)
 {

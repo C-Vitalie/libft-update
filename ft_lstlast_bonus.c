@@ -6,13 +6,13 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:07:05 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/18 14:11:32 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/18 23:54:05 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (0);

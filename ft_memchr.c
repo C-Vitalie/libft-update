@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *mem, int chr, size_t size)
 {
 	const unsigned char	*ptr;
-	unsigned char	target;
+	unsigned char		target;
 
 	ptr = (const unsigned char *)mem;
 	target = (unsigned char)chr;
@@ -27,4 +27,3 @@ void	*ft_memchr(const void *mem, int chr, size_t size)
 	}
 	return (NULL);
 }
- 

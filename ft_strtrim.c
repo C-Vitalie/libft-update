@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 21:45:10 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/17 23:41:41 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/18 23:56:20 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 		s1++;
 	len = ft_strlen(s1);
 	while (len > 0 && inset(s1[len - 1], set))
- 		len--;
+		len--;
 	res = malloc(sizeof(char) * (len + 1));
 	if (!res)
 		return (NULL);
-	res[len] ='\0';
+	res[len] = '\0';
 	if (len)
-	while (len > 0)
 	{
-		res[len - 1] = s1[len - 1];
-		len--;
+		while (len > 0)
+		{
+			res[len - 1] = s1[len - 1];
+			len--;
+		}
 	}
 	return (res);
 }

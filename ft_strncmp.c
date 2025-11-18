@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t len)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*first;
 	unsigned char	*sec;
 
@@ -27,7 +27,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t len)
 			break ;
 		i++;
 	}
-	
 	if (i == len)
 		return (0);
 	else if (first[i] - sec[i] > 0)
