@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 21:45:10 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/18 10:51:14 by vcucuiet         ###   ########.fr       */
+/*   Created: 2025/11/18 14:12:40 by vcucuiet          #+#    #+#             */
+/*   Updated: 2025/11/18 14:49:26 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
-/* 	size_t	len;
-	char	*res;
+	t_list	*temps;
 
-	while (inset(s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (inset(s1[len]))
-		len--;
-	
- */
-	(void)set;
-	return ((char *)s1);
+	while (*lst != NULL)
+	{
+		temps = *lst;
+		*lst = temps->next;
+	}
+	*lst = new;
 }

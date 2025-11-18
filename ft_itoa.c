@@ -6,13 +6,13 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:20:11 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/11 16:35:34 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:33:47 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_len_calc(long int n)
+/* size_t	ft_len_calc(long int n)
 {
 	size_t		len;
 	long int	div;
@@ -50,11 +50,11 @@ void	ft_convert(char *tab, int sign, size_t len, long int n)
 	c = res % 10;
 	res = (res - c) / 10;
 	tab[lim] = (char)c + '0';
-}
+} */
 
 char	*ft_itoa(int n)
 {
-	char		*tab;
+/* 	char		*tab;
 	size_t		len;
 	int			sign;
 	long int	nb;
@@ -75,6 +75,7 @@ char	*ft_itoa(int n)
 	ft_convert(tab, sign, len, nb);
 	if (sign == -1)
 		tab[0] = '-';
-	tab[len + 1] = '\0';
-	return (tab);
+	tab[len + 1] = '\0'; */
+	(void)n;
+	return (NULL);
 }

@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SOURCES = ft_atoi.c\
+SRC = ft_atoi.c\
 		ft_bzero.c\
 		ft_calloc.c\
 		ft_isalnum.c\
@@ -34,29 +34,36 @@ SOURCES = ft_atoi.c\
 		ft_substr.c\
 		ft_tolower.c\
 		ft_toupper.c
-OBJECTS = $(SOURCES:.c=.o)
+S_BONUS = ft_lstnew_bonus.c\
+		ft_lstadd_front_bonus.c\
+		ft_lstsize_bonus.c\
+		ft_lstlast_bonus.c\
+		ft_lstadd_back_bonus.c
+OBJ = $(SRC:.c=.o)
+O_BONUS = $(S_BONUS:.c=.o)
 TARGET = libft.a
 
 $(TARGET): all
 
 .PHONY: all clean fclean re
 
-all: $(OBJECTS)
-	$(AR) -rcs $(TARGET) $(OBJECTS)
+all: $(OBJ)
+	$(AR) -rcs $(TARGET) $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) -f $(OBJECTS)
+	$(RM) -f $(OBJ) $(O_BONUS)
 
 fclean: clean
 	$(RM) -f $(TARGET)
 
 re: fclean all
 
-bonus: all
+bonus:$(O_BONUS) $(OBJ)
+	$(AR) -rcs $(TARGET) $(O_BONUS) $(OBJ)
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES)
-	gcc -nostartfiles -shared -o libft.so $(OBJECTS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(S_BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(O_BONUS)
