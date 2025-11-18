@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 21:26:43 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/11 18:32:14 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/17 23:41:10 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		y;
 
+	if (!s1 || !s2)
+		return (NULL);
 	tab = malloc(sizeof(char) * (ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
 	if (tab == NULL)
 		return (NULL);

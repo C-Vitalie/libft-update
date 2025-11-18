@@ -12,7 +12,7 @@
 
 #include <stddef.h>
 
-void	des_b_src(char *d, const char *s, size_t n)
+static void	des_b_src(char *d, const char *s, size_t n)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ void	des_b_src(char *d, const char *s, size_t n)
 	}
 }
 
-void	src_b_des(char *d, const char *s, size_t n)
+static void	src_b_des(char *d, const char *s, size_t n)
 {
 	size_t	i;
 

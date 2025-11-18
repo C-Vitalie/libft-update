@@ -6,13 +6,13 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:11:13 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/11 18:08:23 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/17 23:42:12 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_cnt_w(const char *str, char c)
+static int	ft_cnt_w(const char *str, char c)
 {
 	int	i;
 	int	in_w;
@@ -20,6 +20,7 @@ int	ft_cnt_w(const char *str, char c)
 
 	cnt = 0;
 	i = 0;
+	in_w = 0;
 	while (str[i])
 	{
 		if (str[i] == c)
@@ -34,7 +35,7 @@ int	ft_cnt_w(const char *str, char c)
 	return (cnt);
 }
 
-char	*ft_dup_w(char const *s, int start, int end)
+static char	*ft_dup_w(char const *s, int start, int end)
 {
 	int		i;
 	char	*word;
@@ -52,13 +53,16 @@ char	*ft_dup_w(char const *s, int start, int end)
 	return (word);
 }
 
-void	ft_free_all(char **tab, int last)
+static void	ft_free_all(char **tab, int last)
 {
 	int	i;
 
 	i = 0;
 	while (i < last)
+	{
 		free(tab[i]);
+		i++;
+	}
 	free(tab);
 }
 
@@ -85,7 +89,7 @@ char	**ft_split(char const *s, char c)
 		{
 			tab[j] = ft_dup_w(s, start, i);
 			if (!tab[j++])
-				return (ft_free_all(tab, j - 1), NULL);
+				return (ft_free_all(tab, j), NULL);
 		}
 	}
 	return (tab[j] = NULL, tab);

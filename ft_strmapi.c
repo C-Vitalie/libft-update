@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:14:44 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/11 18:32:47 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/17 23:42:47 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*tab;
 	size_t			len;
 
+	if (!s)
+		return (NULL);
 	len = ft_strlen((char *)s);
 	i = 0;
 	tab = malloc(sizeof(char) * (len + 1));

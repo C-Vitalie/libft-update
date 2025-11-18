@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 20:54:32 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/14 17:25:41 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/17 23:40:02 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*tab;
 
+	if (!s)
+		return (NULL);
 	tab = malloc(len + 1);
 	if (tab == NULL)
 		return (NULL);

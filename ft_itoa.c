@@ -6,76 +6,64 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:20:11 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/18 14:33:47 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/17 23:38:50 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* size_t	ft_len_calc(long int n)
-{
-	size_t		len;
-	long int	div;
 
-	if (n == 0)
-		return (1);
-	div = 1;
-	len = 0;
-	while (div < n)
+static int	ft_count_digits(long int nb, int sign)
+{
+	int	len;
+
+	len = 1;
+	if (sign)
+		len++;
+	while (nb >= 10)
 	{
 		len++;
-		div *= 10;
+		nb /= 10;
 	}
 	return (len);
 }
 
-void	ft_convert(char *tab, int sign, size_t len, long int n)
+static void	ft_write_digits(char *tab, long int nb, int len, int sign)
 {
-	long int	c;
-	long int	res;
-	size_t		lim;
+	int	i;
 
-	res = (long int)n;
-	if (sign == 1)
-		lim = 0;
-	else if (sign == -1)
-		lim = 1;
-	while (len - 1> lim)
+	i = len - 1;
+	while (nb > 0)
 	{
-		c = res % 10;
-		res = (res - c) / 10;
-		tab[len - 1] = (char)c + '0';
-		len--;
+		tab[i--] = (nb % 10) + '0';
+		nb /= 10;
 	}
-	c = res % 10;
-	res = (res - c) / 10;
-	tab[lim] = (char)c + '0';
-} */
+	if (sign)
+		tab[0] = '-';
+}
 
 char	*ft_itoa(int n)
 {
-/* 	char		*tab;
-	size_t		len;
-	int			sign;
+	char		*tab;
+	int			len;
 	long int	nb;
+	int			sign;
 
 	nb = (long int)n;
-	len = 0;
-	sign = 1;
+	sign = 0;
 	if (nb < 0)
 	{
-		len = 1;
-		sign *= -1;
+		sign = 1;
 		nb = -nb;
 	}
-	len += ft_len_calc(nb);
+	len = ft_count_digits(nb, sign);
 	tab = malloc(sizeof(char) * (len + 1));
 	if (!tab)
 		return (NULL);
-	ft_convert(tab, sign, len, nb);
-	if (sign == -1)
-		tab[0] = '-';
-	tab[len + 1] = '\0'; */
-	(void)n;
-	return (NULL);
+	if (nb == 0)
+		tab[0] = '0';
+	else
+		ft_write_digits(tab, nb, len, sign);
+	tab[len] = '\0';
+	return (tab);
 }
