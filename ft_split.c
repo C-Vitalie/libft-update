@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:11:13 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/17 23:42:12 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/19 23:56:36 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,28 @@ static void	ft_free_all(char **tab, int last)
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		start;
-	char	**tab;
+	t_splitvar	var;
 
-	tab = malloc(sizeof(char *) * (ft_cnt_w(s, c) + 1));
-	if (!tab)
+	if (!s)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
+	var.tab = malloc(sizeof(char *) * (ft_cnt_w(s, c) + 1));
+	if (!var.tab)
+		return (NULL);
+	var.i = 0;
+	var.j = 0;
+	while (s[var.i])
 	{
-		while ((s[i] == c) && (s[i]))
-			i++;
-		start = i;
-		while ((s[i] != c) && (s[i]))
-			i++;
-		if (start < i)
+		while ((s[var.i] == c) && (s[var.i]))
+			var.i++;
+		var.start = var.i;
+		while ((s[var.i] != c) && (s[var.i]))
+			var.i++;
+		if (var.start < var.i)
 		{
-			tab[j] = ft_dup_w(s, start, i);
-			if (!tab[j++])
-				return (ft_free_all(tab, j), NULL);
+			var.tab[var.j] = ft_dup_w(s, var.start, var.i);
+			if (!var.tab[var.j++])
+				return (ft_free_all(var.tab, var.j), NULL);
 		}
 	}
-	return (tab[j] = NULL, tab);
+	return (var.tab[var.j] = NULL, var.tab);
 }

@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 15:01:06 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/19 23:35:21 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/19 23:52:32 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strtrim(char const *s1, char const *set);
+
+typedef struct s_splitvar
+{
+	int		i;
+	int		j;
+	int		start;
+	char	**tab;
+}			t_splitvar;
+
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
