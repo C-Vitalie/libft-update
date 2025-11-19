@@ -37,13 +37,3 @@ char	*ft_strnstr(const char *tab, const char *chr, size_t n)
 	}
 	return (NULL);
 }
-
-#include <stdio.h>
-#include <bsd/string.h>
-
-int	main(void)
-{
-	printf("%p\n", ft_strnstr(((void*)0), "fake", 0));
-	printf("%p", strnstr(((void*)0), "fake", 0));
-	return (0);
-}
