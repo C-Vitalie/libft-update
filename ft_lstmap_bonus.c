@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 23:15:06 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/20 00:03:08 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/11/20 00:47:47 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		l_content = f(lst->content);
 		if (!l_content)
-			return (ft_lstclear(&lres, del),NULL);
+			return (ft_lstclear(&lres, del), NULL);
 		l_node = ft_lstnew(l_content);
 		if (!l_node)
 		{
