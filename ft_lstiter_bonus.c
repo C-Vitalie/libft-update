@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 20:54:32 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/19 23:20:06 by vcucuiet         ###   ########.fr       */
+/*   Created: 2025/11/19 23:29:04 by vcucuiet          #+#    #+#             */
+/*   Updated: 2025/11/19 23:31:10 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	i;
-	char	*tab;
-	size_t	str_len;
-
-	if (!s)
-		return (NULL);
-	str_len = ft_strlen(s);
-	if (start >= str_len)
-		str_len = 0;
-	else if (str_len - start < len)
-		str_len = str_len - start;
-	else
-		str_len = len;
-	tab = malloc(str_len + 1);
-	if (!tab)
-		return (NULL);
-	i = 0;
-	while (i < str_len)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		tab[i] = s[start + i];
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	tab[i] = '\0';
-	return (tab);
 }

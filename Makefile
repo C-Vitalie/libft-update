@@ -39,7 +39,10 @@ S_BONUS = ft_lstnew_bonus.c\
 		ft_lstsize_bonus.c\
 		ft_lstlast_bonus.c\
 		ft_lstadd_back_bonus.c\
-		ft_lstdelone_bonus.c
+		ft_lstdelone_bonus.c\
+		ft_lstclear_bonus.c\
+		ft_lstiter_bonus.c\
+		ft_lstmap_bonus.c
 OBJ = $(SRC:.c=.o)
 O_BONUS = $(S_BONUS:.c=.o)
 TARGET = libft.a
@@ -54,6 +57,9 @@ all: $(OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+bonus:$(O_BONUS) $(OBJ)
+	$(AR) -rcs $(TARGET) $(O_BONUS) $(OBJ)
+
 clean:
 	$(RM) -f $(OBJ) $(O_BONUS)
 
@@ -61,10 +67,3 @@ fclean: clean
 	$(RM) -f $(TARGET)
 
 re: fclean all
-
-bonus:$(O_BONUS) $(OBJ)
-	$(AR) -rcs $(TARGET) $(O_BONUS) $(OBJ)
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(S_BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJ) $(O_BONUS)
