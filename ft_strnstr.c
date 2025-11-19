@@ -19,7 +19,9 @@ char	*ft_strnstr(const char *tab, const char *chr, size_t n)
 	char	*p1;
 	char	*p2;
 
-	if (!n)
+	if (!*chr)
+		return ((char *)tab);
+	if (!*tab)
 		return ((char *)tab);
 	p1 = (char *)tab;
 	p2 = (char *)chr;
@@ -34,4 +36,14 @@ char	*ft_strnstr(const char *tab, const char *chr, size_t n)
 		i++;
 	}
 	return (NULL);
+}
+
+#include <stdio.h>
+#include <bsd/string.h>
+
+int	main(void)
+{
+	printf("%p\n", ft_strnstr(((void*)0), "fake", 0));
+	printf("%p", strnstr(((void*)0), "fake", 0));
+	return (0);
 }
