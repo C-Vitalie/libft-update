@@ -6,16 +6,34 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 15:01:06 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/11/21 14:00:59 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2025/12/31 17:34:13 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+//----ft_libc/ft_printf/gnl_include----//
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-
+# include <limits.h>
+//--end_ft_libc/ft_printf/gnl_include--//
+//-------------------------------//
+//----ft_printf_include----//
+# include <stdarg.h>
+//--end_ft_printf_include--//
+//----------------------------//
+//-----get_next_line_include-----//
+# include <fcntl.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
+# endif
+//---end_get_next_line_include---//
+//-------------------------//
+//-----libc_ft-----//
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t e_cnt, size_t e_size);
@@ -42,7 +60,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strtrim(char const *s1, char const *set);
-
+//----end_libc_ft---//
+//-----------------//
+//-----lst_ft-----//
 typedef struct s_splitvar
 {
 	int		i;
@@ -75,5 +95,66 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+//---end_lst_ft---//
+//------------------//
+//-----ft_printf-----//
+int	ft_printf(const char *str, ...);
+int	ft_printf_c(int c);
+int	ft_printf_s(char *str);
+int	ft_printf_d_i(int n);
+int	ft_printf_u(unsigned int n);
+int	ft_printf_p(unsigned long hex);
+int	ft_printf_hex(unsigned int hex, char c);
+
+typedef struct ft_printf_val
+{
+	va_list	arg;
+	int		i;
+	int		size;
+}		t_var_printf_val;
+
+typedef struct s_printf_u
+{
+	char				*tab;
+	unsigned int		len;
+	long unsigned int	nb;
+	int					size;
+}					t_var_printf_u;
+
+typedef struct printf_hex
+{
+	char			*res;
+	char			*tab;
+	unsigned long	temp;
+	int				len;
+	int				size;
+}				t_var_printf_hex;
+//---end_ft_printf---//
+//---------------------//
+//-----get_next_line-----//
+typedef struct s_get_next_line
+{
+	char	*buf;
+	char	*temp;
+	char	*res;
+	ssize_t	c_buf;
+	ssize_t	t_size;
+	ssize_t	t_read;
+}			t_var_gnl;
+/*get_next_line.c*/
+char	*get_next_line(int fd);
+/*get_next_line.c-end*/
+/*get_next_line_utils.c*/
+void	ft_set_gnl_to_default(t_var_gnl *val, char **stash, int status);
+char	*ft_strdup(const char *src);
+char	*ft_strdupcat(char *dest, char *src, ssize_t *size, ssize_t add_size);
+size_t	ft_strlen(const char *tab);
+int		ft_gnl_check_break(t_var_gnl *val, int state);
+/*get_next_line_utils.c-end*/
+//---end_get_next_line---//
+//-------------------//
+//-----My_ft-----//
+char	**read_from_stdin(char **dest);
+//---end_My_ft---//
 
 #endif

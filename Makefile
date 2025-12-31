@@ -1,5 +1,7 @@
 CC = gcc
+
 CFLAGS = -Wall -Wextra -Werror
+
 SRC = ft_memcmp.c\
 			ft_atoi.c\
 			ft_bzero.c\
@@ -33,20 +35,26 @@ SRC = ft_memcmp.c\
 			ft_strtrim.c\
 			ft_substr.c\
 			ft_tolower.c\
-			ft_toupper.c
-
-S_BONUS = ft_lstnew_bonus.c\
-				ft_lstadd_front_bonus.c\
-				ft_lstsize_bonus.c\
-				ft_lstlast_bonus.c\
-				ft_lstadd_back_bonus.c\
-				ft_lstdelone_bonus.c\
-				ft_lstclear_bonus.c\
-				ft_lstiter_bonus.c\
-				ft_lstmap_bonus.c
+			ft_toupper.c\
+			ft_lstnew_bonus.c\
+			ft_lstadd_front_bonus.c\
+			ft_lstsize_bonus.c\
+			ft_lstlast_bonus.c\
+			ft_lstadd_back_bonus.c\
+			ft_lstdelone_bonus.c\
+			ft_lstclear_bonus.c\
+			ft_lstiter_bonus.c\
+			ft_lstmap_bonus.c\
+			ft_printf.c\
+			ft_printf_p.c\
+			ft_printf_hex.c\
+			ft_printf_utils.c\
+			get_next_line.c\
+			get_next_line_utils.c\
+			read_from_stdin.c
 
 OBJ = $(SRC:.c=.o)
-O_BONUS = $(S_BONUS:.c=.o)
+
 NAME = libft.a
 
 $(NAME): $(OBJ)
@@ -59,11 +67,10 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus:$(O_BONUS) $(OBJ)
-	$(AR) -rcs $(NAME) $(O_BONUS) $(OBJ)
+ac: all clean
 
 clean:
-	$(RM) -f $(OBJ) $(O_BONUS)
+	$(RM) -f $(OBJ)
 
 fclean: clean
 	$(RM) -f $(NAME)
