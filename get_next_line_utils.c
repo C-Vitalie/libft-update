@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 11:23:23 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/12/31 17:07:26 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2026/01/06 23:31:11 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,33 +38,6 @@ void	ft_set_gnl_to_default(t_var_gnl *val, char **stash, int status)
 			val->res = NULL;
 		}
 	}
-}
-
-char	*ft_strdupcat(char *dest, char *src, ssize_t *size, ssize_t add_size)
-{
-	char	*temp;
-	int		i;
-	int		j;
-
-	if (dest)
-	{
-		temp = dest;
-		dest = malloc(sizeof(char) * (*size + add_size + 1));
-		if (!dest || !temp)
-			return (NULL);
-		i = -1;
-		while (temp[++i])
-			dest[i] = temp[i];
-		j = -1;
-		while (++j + i < *size + add_size)
-			dest[i + j] = src[j];
-		dest[i + j] = '\0';
-		free(temp);
-		temp = NULL;
-	}
-	else
-		dest = ft_strdup(src);
-	return (*size += add_size, dest);
 }
 
 int	ft_gnl_check_break(t_var_gnl *val, int state)

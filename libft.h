@@ -6,7 +6,7 @@
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 15:01:06 by vcucuiet          #+#    #+#             */
-/*   Updated: 2025/12/31 17:34:13 by vcucuiet         ###   ########.fr       */
+/*   Updated: 2026/01/11 04:20:02 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 //-------------------------//
 //-----libc_ft-----//
 int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t e_cnt, size_t e_size);
 int		ft_isalnum(int c);
@@ -53,6 +54,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlen(const char *tab);
+size_t	ft_strclen(const char *tab, const char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t len);
 char	*ft_strnstr(const char *tab, const char *chr, size_t n);
 char	*ft_strrchr(const char *string, int c);
@@ -60,6 +62,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strtrim(char const *s1, char const *set);
+int		ft_min(int *arr, int size);
+int		ft_max(int *arr, int size);
+int		ft_med(int *arr, int size);
+void	ft_swap(int *a, int *b);
+void	ft_qsort(int *arr, int low, int high);
 //----end_libc_ft---//
 //-----------------//
 //-----lst_ft-----//
@@ -98,13 +105,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 //---end_lst_ft---//
 //------------------//
 //-----ft_printf-----//
-int	ft_printf(const char *str, ...);
-int	ft_printf_c(int c);
-int	ft_printf_s(char *str);
-int	ft_printf_d_i(int n);
-int	ft_printf_u(unsigned int n);
-int	ft_printf_p(unsigned long hex);
-int	ft_printf_hex(unsigned int hex, char c);
+int		ft_printf(const char *str, ...);
+int		ft_printf_c(int c);
+int		ft_printf_s(char *str);
+int		ft_printf_d_i(int n);
+int		ft_printf_u(unsigned int n);
+int		ft_printf_p(unsigned long hex);
+int		ft_printf_hex(unsigned int hex, char c);
 
 typedef struct ft_printf_val
 {
@@ -146,15 +153,17 @@ char	*get_next_line(int fd);
 /*get_next_line.c-end*/
 /*get_next_line_utils.c*/
 void	ft_set_gnl_to_default(t_var_gnl *val, char **stash, int status);
-char	*ft_strdup(const char *src);
-char	*ft_strdupcat(char *dest, char *src, ssize_t *size, ssize_t add_size);
 size_t	ft_strlen(const char *tab);
 int		ft_gnl_check_break(t_var_gnl *val, int state);
 /*get_next_line_utils.c-end*/
 //---end_get_next_line---//
 //-------------------//
 //-----My_ft-----//
-char	**read_from_stdin(char **dest);
+char	*read_from_stdin(void);
+char	*ft_strjoin_from_2d(char *s1, char **s2, size_t start);
+char	*ft_strdupcat(char *dest, char *src, ssize_t *size, ssize_t add_size);
+char	*ft_strmultipl(char *str, int occ);
+void	ft_print_array(int *arr, int size);
 //---end_My_ft---//
 
 #endif

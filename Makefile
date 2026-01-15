@@ -1,9 +1,10 @@
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_memcmp.c\
 			ft_atoi.c\
+			ft_atol.c\
 			ft_bzero.c\
 			ft_calloc.c\
 			ft_isalnum.c\
@@ -28,6 +29,7 @@ SRC = ft_memcmp.c\
 			ft_strlcat.c\
 			ft_strlcpy.c\
 			ft_strlen.c\
+			ft_strclen.c\
 			ft_strmapi.c\
 			ft_strncmp.c\
 			ft_strnstr.c\
@@ -51,7 +53,16 @@ SRC = ft_memcmp.c\
 			ft_printf_utils.c\
 			get_next_line.c\
 			get_next_line_utils.c\
-			read_from_stdin.c
+			read_from_stdin.c\
+			ft_strjoin_from_2d.c\
+			ft_swap.c\
+			ft_qsort.c\
+			ft_min.c\
+			ft_med.c\
+			ft_max.c\
+			ft_strmultipl.c\
+			ft_strdupcat.c\
+			ft_print_array.c
 
 OBJ = $(SRC:.c=.o)
 

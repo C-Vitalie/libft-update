@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_from_stdin.c                                  :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 15:14:51 by vcucuiet          #+#    #+#             */
-/*   Updated: 2026/01/12 20:51:54 by vcucuiet         ###   ########.fr       */
+/*   Created: 2026/01/06 20:01:28 by vcucuiet          #+#    #+#             */
+/*   Updated: 2026/01/06 20:02:53 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*read_from_stdin(void)
+void	ft_swap(int *a, int *b)
 {
-	char	*line;
-	char	*res;
-	ssize_t	res_len;
+	int	temp;
 
-	res = ft_strdup("");
-	if (!res)
-		return (NULL);
-	res_len = 0;
-	while (1)
-	{
-		line = get_next_line(0);
-		if (!line)
-			break ;
-		res = ft_strdupcat(res, line, &res_len, ft_strlen(line));
-		free(line);
-		if (!res)
-			return (NULL);
-	}
-	return (res);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

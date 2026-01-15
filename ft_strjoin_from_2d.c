@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_from_stdin.c                                  :+:      :+:    :+:   */
+/*   ft_strjoin_from_2d.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 15:14:51 by vcucuiet          #+#    #+#             */
-/*   Updated: 2026/01/12 20:51:54 by vcucuiet         ###   ########.fr       */
+/*   Created: 2026/01/02 15:33:23 by vcucuiet          #+#    #+#             */
+/*   Updated: 2026/01/13 11:52:54 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*read_from_stdin(void)
+char	*ft_strjoin_from_2d(char *s1, char **s2, size_t start)
 {
-	char	*line;
+	size_t	i;
 	char	*res;
-	ssize_t	res_len;
+	char	*tmp;
 
-	res = ft_strdup("");
+	if (!s1 || !s2)
+		return (NULL);
+	res = ft_strdup(s1);
 	if (!res)
 		return (NULL);
-	res_len = 0;
-	while (1)
+	i = start;
+	while (s2[i])
 	{
-		line = get_next_line(0);
-		if (!line)
-			break ;
-		res = ft_strdupcat(res, line, &res_len, ft_strlen(line));
-		free(line);
+		tmp = res;
+		res = ft_strjoin(res, s2[i++]);
+		free(tmp);
 		if (!res)
 			return (NULL);
 	}

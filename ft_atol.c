@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_from_stdin.c                                  :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 15:14:51 by vcucuiet          #+#    #+#             */
-/*   Updated: 2026/01/12 20:51:54 by vcucuiet         ###   ########.fr       */
+/*   Created: 2026/01/11 04:18:37 by vcucuiet          #+#    #+#             */
+/*   Updated: 2026/01/13 10:30:02 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*read_from_stdin(void)
+long	ft_atol(const char *str)
 {
-	char	*line;
-	char	*res;
-	ssize_t	res_len;
+	long long	res;
+	int			i;
+	int			sign;
 
-	res = ft_strdup("");
-	if (!res)
-		return (NULL);
-	res_len = 0;
-	while (1)
+	sign = 1;
+	res = 0;
+	i = 0;
+	while (((str[i] <= 13) && (str[i] >= 9)) || (str[i] == 32))
+		i++;
+	if ((str[i] == '+') || (str[i] == '-'))
 	{
-		line = get_next_line(0);
-		if (!line)
-			break ;
-		res = ft_strdupcat(res, line, &res_len, ft_strlen(line));
-		free(line);
-		if (!res)
-			return (NULL);
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	return (res);
+	while (str[i] <= '9' && (str[i] >= '0'))
+	{
+		res = (res * 10) + str[i] - '0';
+		i++;
+	}
+	return ((long)(res * sign));
 }

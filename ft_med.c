@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_from_stdin.c                                  :+:      :+:    :+:   */
+/*   ft_med.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcucuiet <vcucuiet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 15:14:51 by vcucuiet          #+#    #+#             */
-/*   Updated: 2026/01/12 20:51:54 by vcucuiet         ###   ########.fr       */
+/*   Created: 2026/01/06 19:47:59 by vcucuiet          #+#    #+#             */
+/*   Updated: 2026/01/07 12:14:52 by vcucuiet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*read_from_stdin(void)
+int	ft_med(int *stack, int size)
 {
-	char	*line;
-	char	*res;
-	ssize_t	res_len;
+	int	*tmp_arr;
+	int	median;
+	int	i;
 
-	res = ft_strdup("");
-	if (!res)
-		return (NULL);
-	res_len = 0;
-	while (1)
+	tmp_arr = malloc(sizeof(int) * size);
+	if (!tmp_arr)
+		return (0);
+	i = 0;
+	while (i < size)
 	{
-		line = get_next_line(0);
-		if (!line)
-			break ;
-		res = ft_strdupcat(res, line, &res_len, ft_strlen(line));
-		free(line);
-		if (!res)
-			return (NULL);
+		tmp_arr[i] = stack[i];
+		i++;
 	}
-	return (res);
+	ft_qsort(tmp_arr, 0, size - 1);
+	median = tmp_arr[size / 2];
+	free(tmp_arr);
+	tmp_arr = NULL;
+	return (median);
 }
